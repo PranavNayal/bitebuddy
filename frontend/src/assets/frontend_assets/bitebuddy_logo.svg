@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 8C6.48 8 2 12.48 2 18C2 23.52 6.48 28 12 28C17.52 28 22 23.52 22 18C22 12.48 17.52 8 12 8ZM12 26C7.59 26 4 22.41 4 18C4 13.59 7.59 10 12 10C16.41 10 20 13.59 20 18C20 22.41 16.41 26 12 26Z" fill="#FF6B4A"/>
+  <path d="M12 14C10.9 14 10 14.9 10 16V20C10 21.1 10.9 22 12 22C13.1 22 14 21.1 14 20V16C14 14.9 13.1 14 12 14Z" fill="#FF6B4A"/>
+  <path d="M32.5 20.5C35 20.5 37 18.5 37 16C37 13.5 35 11.5 32.5 11.5C30 11.5 28 13.5 28 16C28 18.5 30 20.5 32.5 20.5Z" fill="#FF6B4A"/>
+  <text x="45" y="28" font-family="Arial-BoldMT, Arial" font-weight="700" font-size="24" fill="#0F172A">BiteBuddy</text>
+</svg>

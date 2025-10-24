@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* Global theme variables */
+:root{
+  --bg-1: #f7fafc;
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #ff6b4a; /* tomato-like */
+  --accent-2: #ffedd9;
+  --text: #0f172a;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 14px;
+  --shadow-1: 0 6px 20px rgba(16,24,40,0.06);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Outfit, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  scroll-behavior: smooth;
+}
+html,body{
+  height: 100%;
+  background: linear-gradient(180deg,#fbfdff 0%, var(--bg-1) 100%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.app{
+  width: min(1100px, 94%);
+  margin: 28px auto;
+}
+
+/* Utility */
+.center{display:flex;align-items:center;justify-content:center}
+.container{padding:12px}
+
+/* Fade-in animation used across cards */
+@keyframes fadeIn{
+  from{opacity:0; transform: translateY(6px)}
+  to{opacity:1; transform: translateY(0)}
+}
+
+/* Buttons */
+.btn{
+  background: linear-gradient(90deg,var(--accent),#ff8c6a);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight:600;
+  box-shadow: 0 6px 18px rgba(255,107,74,0.18);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{ transform: translateY(-2px); }
+.btn-ghost{ background: transparent; border: 1px solid #eee; color:var(--text) }
+
+/* Card baseline */
+.card{
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  animation: fadeIn .6s ease both;
+}
+
+/* Food item tweaks (more modern card) */
+.food-item{
+    width: 100%;
+    margin: auto;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: fadeIn 0.6s;
+    background: var(--card-bg);
+    overflow: hidden;
+}
+.food-item:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(16,24,40,0.09); }
+.food-item-image{ width:100%; height:200px; object-fit:cover; display:block }
+.food-item-info{ padding: 18px 18px 22px 18px }
+.food-item-name-rating p{ font-size:18px; font-weight:600; color:var(--text) }
+.food-item-desc{ color:var(--muted); font-size:13px; margin-top:6px }
+.food-item-price{ color:var(--accent); font-size:20px; font-weight:700; margin:8px 0 }
+.food-item-img-container{ position: relative }
+.food-item-img-container .add{ position:absolute; width:42px; bottom:16px; right:16px; cursor:pointer; border-radius:50%; background:var(--accent); padding:8px; box-shadow:0 8px 20px rgba(255,107,74,0.18) }
+.food-item-counter{ position:absolute; bottom:16px; right:16px; display:flex; align-items:center; gap:10px; padding:6px; border-radius:50px; background-color:rgba(255,255,255,0.95) }
+
+/* Navbar small improvements */
+.navbar{ padding:18px 0; display:flex; justify-content:space-between; align-items:center }
+.navbar .logo{ width:150px }
+.navbar-menu{ display:flex; list-style:none; gap:20px; color:#48536f; font-size:16px }
+.navbar-right{ display:flex; align-items:center; gap:28px }
+.navbar button{ background:transparent; font-size:15px; color:#48536f; border:1px solid var(--accent); padding:8px 22px; border-radius:50px; cursor:pointer }
+.navbar button:hover{ background:var(--accent-2) }
+
+/* Responsive tweaks */
+@media (max-width:900px){ .food-item-image{ height:160px } .app{ width:94% } }
