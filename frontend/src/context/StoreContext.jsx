@@ -58,11 +58,17 @@ const StoreContextProvider = (props) => {
   };
 
   const fetchFoodList = async () => {
-    const response = await axios.get(url + "/api/food/list");
-    if (response.data.success) {
-      setFoodList(response.data.data);
-    } else {
-      alert("Error! Products are not fetching..");
+    try {
+      const response = await axios.get(url + "/api/food/list");
+      if (response.data.success) {
+        setFoodList(response.data.data);
+      } else {
+        toast.error("Error fetching products");
+      }
+    } catch (error) {
+      console.error("Failed to fetch food list:", error);
+      toast.error("Failed to connect to server");
+      setFoodList([]); // Set empty array as fallback
     }
   };
 
@@ -77,10 +83,15 @@ const StoreContextProvider = (props) => {
 
   useEffect(() => {
     async function loadData() {
-      await fetchFoodList();
-      if (localStorage.getItem("token")) {
-        setToken(localStorage.getItem("token"));
-        await loadCardData(localStorage.getItem("token"));
+      try {
+        await fetchFoodList();
+        if (localStorage.getItem("token")) {
+          setToken(localStorage.getItem("token"));
+          await loadCardData(localStorage.getItem("token"));
+        }
+      } catch (error) {
+        console.error("Error loading initial data:", error);
+        toast.error("Failed to initialize application");
       }
     }
     loadData();
